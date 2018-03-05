@@ -16,42 +16,64 @@
   <div id="app"></div>
   <script type="text/babel">
 
-  function MojKomponent() {
-    return (
-      <div>
-        <header>
-          <h1 id="logo">Label manager</h1>
-        </header>
+    const Square = (props) => {
+      return (
+        <div>
+           From:<input />
+           To:<input />
+        </div>
+      );
+    }
 
-        <main>
-          <div id="containerL">
-            From:
-            To:
+    const Button = (props) => {
+      return (
+        <div>
+         <span>
+         <br />
+          <button>add square</button>
+          <button>add text</button>
+          <button>download in pdf</button>
+          <hr />
+          </span>
+        </div>
+      );
+    }
+
+    const Footer = (props) => {
+      return (
+        <div>
+          All rights reserved &copy; 2018 Thank you for your visit!
+        </div>
+      );
+    }
+
+    class Program extends React.Component {
+      render() {
+        return (
+          <div >
+           <dialog open>
+            <h3>Label manager</h3>
+              <Square />
+              <Button />
+            <Footer />
+          </dialog>
           </div>
+        );
+      }
+    }
 
-          <div id="containerR">
-            <nav id="nav">
-              <ul class="menu">
-                <li><button>add square</button></li>
-                <li><button>add text</button></li>
-              </ul>
-            </nav>
-           </div>
-        </main>
+    function MojKomponent() {
+      return (
+        <div>
+           <Program />
+        </div>
+      );
+    }
 
-        <footer>
-          <div id="info">
-            All rights reserved &copy; 2018 Thank you for your visit!
-          </div>
-        </footer>
-      </div>
-    );
-  }
-
-  ReactDOM.render(
-    <MojKomponent />,
+    ReactDOM.render(
+      <MojKomponent />,
     document.getElementById('app')
-  );
+    );
   </script>
 </body>
 </html>
