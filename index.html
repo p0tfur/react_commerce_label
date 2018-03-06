@@ -16,11 +16,27 @@
   <div id="app"></div>
   <script type="text/babel">
 
+  function SetInputsBoth() {
+      return (
+        <div>
+           Name / Company<input /><br/>
+           Street / number<input /><br/>
+           Post code / City<input /><br/>
+           <br/>
+        </div>
+      );
+    }
+
     const Square = (props) => {
       return (
         <div>
-           From:<input />
-           To:<input />
+           From:<hr/>
+             <SetInputsBoth />
+           To:<hr/>
+             <SetInputsBoth />
+           <hr/>
+            Sender's Reference:<input /> Date:<input /><br/>
+            Customer number:<input /> Time:<input />
         </div>
       );
     }
@@ -51,12 +67,12 @@
       render() {
         return (
           <div >
-           <dialog open>
             <h3>Label manager</h3>
-              <Square />
-              <Button />
+              <dialog open>
+                <Square />
+              </dialog>
+            <Button />
             <Footer />
-          </dialog>
           </div>
         );
       }
