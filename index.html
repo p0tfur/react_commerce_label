@@ -11,6 +11,19 @@
   <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/babel-standalone/babel.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $("#btnPrint").live("click", function () {
+            var divContents = $("#dvContainer").html();
+            var printWindow = window.open('', '', 'height=400,width=800');
+            printWindow.document.write('<html><head><title>Label manager</title>');
+            printWindow.document.write('</head><body >');
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        });
+    </script>
 </head>
 
 <body>
@@ -47,9 +60,8 @@
         <div>
          <span>
          <br />
-          <button type="button" class="btn btn-primary">add square</button>
-          <button type="button" class="btn btn-primary">add text</button>
-          <button type="button" class="btn btn-primary">download in pdf</button>
+          <button type="button" class="btn btn-primary">//TODO add text</button>
+          <input type="button" class="btn btn-primary" value="Print label" id="btnPrint" />
           <hr />
           </span>
         </div>
@@ -69,10 +81,14 @@
         return (
           <div >
             <h3>Label manager</h3>
-              <dialog open>
-                <Square />
-              </dialog>
-            <Button />
+              <form id="form1">
+                <div id="dvContainer">
+                  <dialog open>
+                    <Square />
+                  </dialog>
+                </div>
+              </form>
+              <Button />
             <Footer />
           </div>
         );
